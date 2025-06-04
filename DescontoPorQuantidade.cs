@@ -11,7 +11,7 @@ namespace LojaVirtualP2
         public decimal CalcularDesconto(ItemPedido item)
         {
             if (item.Quantidade >= 5)
-                return item.GetValorTotal() * 0.05m;
+                return item.Produto.Preco *item.Quantidade  * 0.15m;
             return 0;
         }
     }
