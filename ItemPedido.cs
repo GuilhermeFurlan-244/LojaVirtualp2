@@ -10,20 +10,23 @@ namespace LojaVirtualP2
     {
      public Produto Produto { get; private set; }
      public int Quantidade { get; private set; }
+     public IDescontoStrategy DescontoStrategy { get; set; }
 
     public ItemPedido(Produto produto, int quantidade)
         {
-            if(produto == null)
-                throw new ArgumentException(nameof(produto),"Produto não pode ser nulo ")
-            if (quantidade <=0)
-                throw new ArgumentException("Quantidade deve ser maior que zero")
+            if (produto == null)
+                throw new ArgumentException(nameof(produto), "Produto não pode ser nulo ");
+            if (quantidade <= 0)
+                throw new ArgumentException("Quantidade deve ser maior que zero");
 
             Produto = produto;
             Quantidade = quantidade;
         }
         public decimal GetValorTotal()
         {
-            return Produto.Preco * Quantidade;
+            var valorBruto = Produto.Preco * Quantidade;
+            var desconto = DescontoStrategy?.CalcularDesconto(this) ?? 0;
+            return valorBruto - desconto;
         }
     }
 }
