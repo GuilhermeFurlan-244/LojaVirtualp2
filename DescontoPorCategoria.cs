@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace LojaVirtualP2
 {
-    class DescontoPorCategoria
+   public class DescontoPorCategoria : IDescontoStrategy
     {
+        public decimal CalcularDesconto(ItemPedido item)
+        {
+            if (item.Produto.Categoria == "Eletronicos")
+                return item.GetValorTotal() * 0.10m;
+            return 0;
+        }
     }
 }
