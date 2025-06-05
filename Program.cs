@@ -15,7 +15,7 @@ namespace LojaVirtualP2
 
             var cliente = new Cliente(1, "Rodrygo", "rodrygo@gmail.com", "12345678900");
 
-            IDescontoStrategy desconto = new DescontoPorCategoria();
+            IDescontoStrategy desconto = new DescontoPorCategorias();
             
             var log = new LogConsoleService();
             var pedidoFactory = new PedidoFactory(desconto,log);
