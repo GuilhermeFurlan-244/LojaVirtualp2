@@ -9,7 +9,7 @@ namespace LojaVirtualP2
         {
             ILogService logService = new LogConsoleService();
 
-            var produto1 = new Produto(1, "Smartphone", 1500m, "Eletronica");
+            var produto1 = new Produto(1, "Smartphone", 1500m, "Eletronicos");
             var produto2 = new Produto(2, "Camiseta", 50m, "Roupas");
 
 
