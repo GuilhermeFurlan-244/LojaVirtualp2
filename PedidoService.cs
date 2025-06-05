@@ -30,6 +30,7 @@ namespace LojaVirtualP2
         }
         public void ImprimirRelatorio()
         {
+            _log.Registrar("Relatorio de pedidos gerado");
             Console.WriteLine("Relatório de Pedidos");
             foreach (var pedido in _pedidos)
             {
