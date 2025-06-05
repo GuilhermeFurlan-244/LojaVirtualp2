@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LojaVirtualP2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+842a0bd1b2a857283c7adf5d42fa713dc4d294ec")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+45188506ecf874f5f74436cf9184f5dc6072bd0f")]
 [assembly: System.Reflection.AssemblyProductAttribute("LojaVirtualP2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LojaVirtualP2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
