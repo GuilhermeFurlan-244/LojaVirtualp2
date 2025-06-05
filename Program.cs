@@ -3,10 +3,12 @@ using System.Collections.Generic;
 
 namespace LojaVirtualP2
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
+            ILogService logService = new LogConsoleService();
+
             var produto1 = new Produto(1, "Smartphone", 1500m, "Eletronica");
             var produto2 = new Produto(2, "Camiseta", 50m, "Roupas");
 
@@ -14,8 +16,9 @@ namespace LojaVirtualP2
             var cliente = new Cliente(1, "Rodrygo", "rodrygo@gmail.com", "12345678900");
 
             IDescontoStrategy desconto = new DescontoPorCategoria();
-
-            var pedidoFactory = new PedidoFactory(desconto);
+            
+            var log = new LogConsoleService();
+            var pedidoFactory = new PedidoFactory(desconto,log);
 
             var itens = new List<(Produto produto, int quantidade)>
             {
@@ -24,6 +27,7 @@ namespace LojaVirtualP2
         };
 
             var pedido = pedidoFactory.CriarPedido(1, cliente, itens);
+            logService.Registrar("Pedido Criado com Sucesso");
 
             Console.WriteLine($"Pedido ID: {pedido.Id}");
             Console.WriteLine($"Cliente: {pedido.Cliente.Nome}");
@@ -35,7 +39,12 @@ namespace LojaVirtualP2
                 Console.WriteLine($"- {item.Produto.Nome} x {item.Quantidade} | Valor Total: {item.GetValorTotal():C2}");
             }
             Console.WriteLine($"Valor Total do Pedido: {pedido.ValorTotal:C2}");
-       }
+
+            var relatorio = new RelatorioDePedidos();
+            relatorio.Gerar(new List<Pedido> { pedido });
+            
+        
+        }
     }
 }
     
