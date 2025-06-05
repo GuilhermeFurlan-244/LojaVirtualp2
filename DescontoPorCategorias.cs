@@ -13,6 +13,8 @@ namespace LojaVirtualP2
     {
         if (item.Produto.Categoria == "Eletronicos")
             return item.Produto.Preco * item.Quantidade * 0.10m;
+            if (item.Produto.Categoria.Equals("Roupas", StringComparison.OrdinalIgnoreCase))
+                return item.Produto.Preco * item.Quantidade * 0.05m;   
         return 0;
     }
     }
